@@ -35,7 +35,7 @@ if IS_LOCAL:
     # Free AI Studio key — no billing needed
     import google.generativeai as genai
     genai.configure(api_key=GEMINI_API_KEY)
-    gemini_model = genai.GenerativeModel("gemini-2.0-flash")
+    gemini_model = genai.GenerativeModel("gemini-2.5-flash")
     print("✅ Gemini AI Studio (free) initialized")
 else:
     # Full Vertex AI for Cloud Run
@@ -43,7 +43,7 @@ else:
     from vertexai.generative_models import GenerativeModel, GenerationConfig
     vertexai.init(project=PROJECT_ID, location=LOCATION)
     gemini_model = GenerativeModel(
-        "gemini-2.0-flash-001",
+        "gemini-2.5-flash",
         generation_config=GenerationConfig(temperature=0.7, max_output_tokens=1024)
     )
     print("✅ Vertex AI Gemini initialized")

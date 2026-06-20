@@ -1,3 +1,7 @@
+# Carbon Nexus — Backend Dependencies
+# Fixed for Python 3.10/3.11 + Windows local dev + Cloud Run compatibility
+
+# Core
 fastapi==0.115.0
 uvicorn[standard]==0.30.6
 pydantic==2.8.2
@@ -11,6 +15,10 @@ firebase-admin==6.5.0
 
 # Vertex AI
 vertexai==1.65.0
+
+# AI Studio (free-tier Gemini key) — used in IS_LOCAL mode, also needed in
+# Cloud Run since GEMINI_API_KEY is passed there too via --set-env-vars
+google-generativeai==0.8.3
 
 # LangGraph — pinned to versions compatible with each other
 langgraph==0.2.28
